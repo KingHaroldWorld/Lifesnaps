@@ -1,4 +1,9 @@
 <?php
+$ftp_server = "lifesnap.orgfree.com";
+$ftp_conn = ftp_connect($ftp_server);
+$ftp_user = "lifesnap.orgfree.com ";
+$ftp_pass = "123456";
+$login = ftp_login($ftp_conn, $ftp_user, $ftp_pass);
 if (count($_SESSION) == 0) {
   header('Location: ?page=login');
 }
@@ -39,7 +44,7 @@ if (isset($_POST['submit'])) {
   }
 
   if ($uploadOk) {
-    if (move_uploaded_file($_FILES['image']['tmp_name'], $target_file)) {
+    if (ftp_put($ftp_conn, $target_file, $_FILES['image']['tmp_name'], FTP_BINARY)) {
       $sql = "INSERT INTO posts (user_id, imgpath, caption) VALUES ('$uid', '$target_file', '$caption')";
       // print_r($sql);
       $result = mysqli_query($dbcon, $sql);
