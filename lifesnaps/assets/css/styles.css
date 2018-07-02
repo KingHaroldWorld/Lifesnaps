@@ -1,0 +1,36 @@
+body{
+  font-size: 13px;
+}
+
+.header{
+  padding: 0.5rem;
+  position: fixed;
+  z-index: 1000;
+}
+
+.body{
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+
+.footer{
+  padding: 0.5rem;
+  position: fixed;
+  bottom: 0;
+}
+
+.card{
+  margin-top: 1rem;
+}
+
+.card-body{
+  padding: 0.5rem !important
+}
+
+.form-control{
+  font-size: inherit;
+}
+
+a{
+  color: white !important;
+}
